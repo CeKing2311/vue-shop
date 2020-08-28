@@ -1,0 +1,93 @@
+{
+  "id": "2032138",
+  "name": "vue-shop",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "13625313",
+      "name": "商品",
+      "font_class": "shangpin",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "54108",
+      "name": "Permissions",
+      "font_class": "permissions",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "212782",
+      "name": "show-password ",
+      "font_class": "showpassword",
+      "unicode": "ea3f",
+      "unicode_decimal": 59967
+    },
+    {
+      "icon_id": "774476",
+      "name": "单据",
+      "font_class": "danju",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "1199149",
+      "name": "users",
+      "font_class": "users",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1393689",
+      "name": "lock",
+      "font_class": "lock",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "2418263",
+      "name": "头像",
+      "font_class": "touxiang",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "5635075",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "f2dc",
+      "unicode_decimal": 62172
+    },
+    {
+      "icon_id": "6129300",
+      "name": "258体积、空间",
+      "font_class": "tijikongjian",
+      "unicode": "e7dc",
+      "unicode_decimal": 59356
+    },
+    {
+      "icon_id": "6664187",
+      "name": "password",
+      "font_class": "password",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "10166350",
+      "name": "reports",
+      "font_class": "reports",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "16158864",
+      "name": "报表",
+      "font_class": "baobiao",
+      "unicode": "e7e9",
+      "unicode_decimal": 59369
+    }
+  ]
+}
