@@ -36,7 +36,7 @@
                                 <el-button type="primary" icon="el-icon-edit"  size="mini" @click="showEditDialog(scope.row.id)" ></el-button>
                             </el-tooltip>
                             <el-tooltip class="item" effect="dark" content="删除" placement="top" :enterable="false">
-                                <el-button type="danger" icon="el-icon-delete"  size="mini"></el-button>
+                                <el-button type="danger" icon="el-icon-delete"  size="mini" @click="DelUser(scope.row.id)" ></el-button>
                             </el-tooltip>
                             <el-tooltip effect="dark" content="设置权限" placement="top" :enterable="false">
                                 <el-button type="warning" icon="el-icon-setting"  size="mini"></el-button>
@@ -276,6 +276,28 @@ export default {
         this.editDialogVisible = false;
         this.getUserList();
       });
+    },
+    //删除用户信息
+    async DelUser(id){
+      const res= await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(err=>{
+          return err;
+        });      
+        if (res!=='confirm') {
+          //取消删除
+          return this.$message.info('取消删除!');
+        }  else{
+           const {data:res} =await this.$http.delete('users/'+id);
+          if (res.meta.status!==200) {
+            return this.$message.err('删除用户失败!');
+          }
+          this.$message.success('删除用户成功！');
+          this.queryInfo.pagenum=1;
+          this.getUserList();
+        }
     }
   }
 };
