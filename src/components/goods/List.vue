@@ -30,7 +30,7 @@
             </el-table-column>
             <el-table-column label="操作" width="200px">
                 <template slot-scope="scope">
-                    <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
+                    <el-button type="primary" icon="el-icon-edit" size="mini" @click="eidtGoods(scope.row.goods_id)">编辑</el-button>
                     <el-button type="danger" icon="el-icon-delete" size="mini" @click="delGoods(scope.row.goods_id)">删除</el-button>
                 </template>
             </el-table-column>
@@ -107,6 +107,16 @@ export default {
     },
     addGoods(){
         this.$router.push('/goods/add')
+    },
+    eidtGoods(goods_id){
+      // this.$router.push({
+      //   path:'/goods/eidt',
+      //   name:'edit',
+      //   query:{
+      //     id:goods_id
+      //   }
+      // });
+      this.$router.push('/goods/edit/'+goods_id);
     }
   }
 };
