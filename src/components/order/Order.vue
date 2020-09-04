@@ -86,7 +86,7 @@
     </div>
 </template>
 <script>
-import cityData from './citydata.js'
+import cityData from "./citydata.js";
 export default {
   data() {
     return {
@@ -105,7 +105,7 @@ export default {
       orderList: [],
       total: 0,
       dialogVisible: false,
-      dialogProgressVisible:false,
+      dialogProgressVisible: false,
       addressForm: {
         address1: "",
         address2: ""
@@ -119,7 +119,7 @@ export default {
         ]
       },
       cityData,
-      progressList:[]
+      progressList: []
     };
   },
   created() {
@@ -147,26 +147,26 @@ export default {
     editAddress() {
       this.dialogVisible = true;
     },
-    dialogClosed(){
+    dialogClosed() {
       this.$refs.addressFormRef.resetFileds();
     },
-    async showProgressBox(){
-      this.dialogProgressVisible=true;
-      const {data :res} = await this.$http.get('kuaidi/1106975712662');
-      if (res.meta.status!==200) {
-        return this.$message.error('获取物流信息失败!')
+    async showProgressBox() {
+      this.dialogProgressVisible = true;
+      const { data: res } = await this.$http.get("kuaidi/1106975712662");
+      if (res.meta.status !== 200) {
+        return this.$message.error("获取物流信息失败!");
       }
-      this.progressList= res.data;
+      this.progressList = res.data;
       console.log(res.data);
     }
   }
 };
 </script>
 <style lang="less" scoped>
-.el-cascader{
-    width: 100%;
+.el-cascader {
+  width: 100%;
 }
-.el-cascader-panel{
+.el-cascader-panel {
   height: 300px;
 }
 </style>
