@@ -30,3 +30,6 @@ html,body,#app{
 .btn-top-15{
     margin-top: 15px;
 }
+.el-cascader-menu {
+    height: 300px;
+}

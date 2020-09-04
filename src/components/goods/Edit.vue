@@ -204,6 +204,7 @@ export default {
 
         res.data.forEach(item => {
           item.attr_vals = item.attr_vals ? item.attr_vals.split(" ") : [];
+          
           const attr = this.goodsForm.attrs.find(el => {
             return el.attr_id == item.attr_id;
           });
