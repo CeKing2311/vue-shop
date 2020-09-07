@@ -6,35 +6,8 @@ module.exports = {
   outputDir: process.env.NODE_ENV === "production" ? "dist" : "devdist",
   //assetsDir: 'assets',
   lintOnSave: true,
-  // 配置生产环境和开发环境的打包入口
   chainWebpack: config => {
-    // 发布模式
-    config.when(process.env.NODE_ENV === 'production', config => {
-      config.entry('app').clear().add('./src/main-prod.js')
-      // 通过 externals 加载外部CDN资源      
-      config.set('externals', {
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
-        axiox: 'axios',
-        lodash: '_',
-        echarts: 'echarts',
-        nprogress: 'NProgress',
-        'vue-quill-editor': 'VueQuillEditor'
-      })
-      config.plugin('html').tap(args => {
-        args[0].isProd = true;
-        return args
-      })
-    })
-    // 开发模式
-    config.when(process.env.NODE_ENV === 'development', config => {
-      config.entry('app').clear().add('./src/main-dev.js')
-
-      config.plugin('html').tap(args => {
-        args[0].isProd = false;
-        return args
-      })
-    })
+    //config.resolve.symlinks(true) //热更新
   },
   configureWebpack: config => {
     config.resolve = {
@@ -45,8 +18,8 @@ module.exports = {
         'components': path.resolve(__dirname, './src/components'),
       }
     }
-  },
 
+  },
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: false,
   css: {
@@ -68,5 +41,21 @@ module.exports = {
   parallel: require("os").cpus().length > 1,
   //pwa插件相关配置
   pwa: {},
-
+  // webpack-dev-server 相关配置
+  devServer: {
+    open: false,
+    host: "0.0.0.0",
+    port: 8080,
+    https: false, //编译失败时刷新页面
+    hot: true, //开启热加载
+    hotOnly: false,
+    overlay: {
+      warnings: false,
+      errors: false
+    },
+    proxy: null, //设置代理
+    before: app => {}
+  },
+  //第三方插件配置
+  pluginOptions: {}
 };

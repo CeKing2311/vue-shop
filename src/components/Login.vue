@@ -28,8 +28,8 @@ export default {
   data() {
     return {
       userForm: {
-        username: "admin",
-        password: "123456"
+        username: "",
+        password: ""
       },
       //验证规则对象
       loginRules: {

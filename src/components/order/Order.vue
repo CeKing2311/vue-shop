@@ -148,7 +148,7 @@ export default {
       this.dialogVisible = true;
     },
     dialogClosed() {
-      this.$refs.addressFormRef.resetFileds();
+      this.$refs.addressFormRef.resetFields();
     },
     async showProgressBox() {
       this.dialogProgressVisible = true;

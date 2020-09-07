@@ -4,6 +4,9 @@ html,body,#app{
     padding: 0;
     min-width:1366px;
 }
+#nprogress .bar {
+    background: orangered !important;
+}
 .el-breadcrumb{
     margin-bottom: 15px;
     font-size: 12px;

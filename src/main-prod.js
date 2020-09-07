@@ -2,7 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import './plugins/element.js';
+
+//import './plugins/element.js';
+
 import TreeTable from 'vue-table-with-tree-grid'
 //导入富文本编辑器
 import VueQuillEditor from 'vue-quill-editor'
@@ -11,21 +13,30 @@ import VueQuillEditor from 'vue-quill-editor'
 import './assets/iconfont/iconfont.css';
 //导入全局样式表
 import './assets/css/global.css';
-// 导入富文本编辑器对应的样式
-import 'quill/dist/quill.core.css' // import styles
-import 'quill/dist/quill.snow.css' // for snow theme
-import 'quill/dist/quill.bubble.css' // for bubble theme
+
+// 导入 nprogress
+import NProgress from 'nprogress'
 
 import axios from 'axios';
 //配置请求的根路径
 axios.defaults.baseURL = "https://www.liulongbin.top:8888/api/private/v1/";
-
+// 在request 拦截器中 展示进度条 NProgress.start()
 axios.interceptors.request.use(config => {
   // Do something before request is sent
+  NProgress.start();
   config.headers.Authorization = window.sessionStorage.getItem('token');
   return config;
 }, error => {
   // Do something with request error
+  return Promise.reject(error);
+});
+// 在 response 拦截器中,隐藏进度条 NProgress.done()
+axios.interceptors.response.use(response => {
+  // Do something before response is sent
+  NProgress.done();
+  return response;
+}, error => {
+  // Do something with response error
   return Promise.reject(error);
 });
 
@@ -33,7 +44,7 @@ Vue.prototype.$http = axios;
 Vue.config.productionTip = false;
 Vue.component('tree-table', TreeTable);
 // 将富文本编辑器注册为全局可用组件
-Vue.use(VueQuillEditor, /* { default global options } */)
+Vue.use(VueQuillEditor, /* { default global options } */ )
 
 
 Vue.filter('dateFormat', function (originVal) {
